@@ -17,15 +17,3 @@ services:
         hard: -1
     ports:
       - 9200:9200
-    networks:
-      - esnet
-networks:
-  esnet:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.5.0.0/16
-          gateway: 10.5.0.1
-          aux_addresses:
-            elasticsearch: 10.5.0.5
-            iksaansite_web: 10.5.0.10
