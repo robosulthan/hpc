@@ -1,0 +1,73 @@
+Docker setup
+sudo  su -
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+docker --version
+
+docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose  --version
+
+terraform setup
+wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip
+unzip terraform_0.14.7_linux_amd64.zip
+mv terraform /usr/local/bin/
+terraform -v
+
+To connect to slave  without password
+ssh-keygen
+ssh-copy-id  ubuntu@remote_server_ip
+
+
+Java setup
+apt-get update
+apt install openjdk-8-jdk -y
+java -version
+
+
+Install Git
+apt-get install -y git
+git --version
+
+Install Maven 
+apt-get install -y maven
+mvn --version
+
+Install Maven
+wget  https://get.jenkins.io/war-stable/2.277.2/jenkins.war
+java -jar jenkins.war
+
+
+
+Install ansible
+
+Connect to controller.
+
+$ sudo apt-get install software-properties-common
+(  software-properties-common    ,  is a base package which is required to install ansible )
+
+$ sudo apt-add-repository ppa:ansible/ansible
+
+$ sudo apt-get update
+
+$ sudo apt-get install -y ansible
+
++++++++++++++++++
+To check ther version of ansible
+
+$ ansible --version
+
+++++++++++++
+Write the ip address of nodes in the inventory file
+
+$ cd /etc/ansible
+$ ls
+
+$ sudo vim hosts
+
+insert the private ip addresss of 3 servers
+save and quit
+
+$ ls -la     ( to see the list in the current machine )
+$ ansible all  -a  'ls  -la'    ( you will get the list of the files in all managed nodes )
