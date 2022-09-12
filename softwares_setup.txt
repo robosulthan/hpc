@@ -1,3 +1,6 @@
+putty setup
+https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
+
 Docker setup
 sudo  su -
 curl -fsSL https://get.docker.com -o get-docker.sh
